@@ -1,5 +1,6 @@
 const path = require('path')
 const isWindows = require('is-windows')()
+const {oneLine} = require('common-tags')
 
 const concurrentTests = {
   'api-tests': {
@@ -65,8 +66,9 @@ module.exports = {
       script: series([
         startInNewWindow('npm start dev.mongo --silent'),
         startInNewWindow(
-          './node_modules/.bin/cross-env PORT=8080 ' +
-            'npm start dev.client --silent'
+          oneLine`
+          ./node_modules/.bin/cross-env PORT=8080
+          npm start dev.client --silent`
         ),
         startInNewWindow('npm start dev.api --silent'),
       ]),
