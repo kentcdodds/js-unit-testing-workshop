@@ -64,11 +64,14 @@ module.exports = {
     dev: {
       script: series([
         startInNewWindow('npm start dev.mongo --silent'),
-        startInNewWindow('./node_modules/.bin/cross-env PORT=8080 npm start dev.client --silent'),
+        startInNewWindow(
+          './node_modules/.bin/cross-env PORT=8080 ' +
+            'npm start dev.client --silent'
+        ),
         startInNewWindow('npm start dev.api --silent'),
       ]),
       description: 'starts everything in dev mode',
-       // dev is the same as live for mongo for now...
+      // dev is the same as live for mongo for now...
       mongo: 'npm start mongo --silent',
       client: series(['cd client', 'npm run dev --silent']),
       api: series(['cd api', 'npm run dev --silent']),
