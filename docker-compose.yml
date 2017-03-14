@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  workshop:
+    image: testing-workshop
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - "3000:3000"
+      - "8080:8080"
+      - "5858:5858"
+      - "27018:27018"
+    volumes:
+      - .:/src
+    environment:
+      - REMOTE_DEBUGGING
+      - USING_DOCKER_DEV
+      - MONGODB_VERSION="3.4.2"
