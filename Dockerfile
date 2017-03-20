@@ -24,14 +24,13 @@ ENV PATH /mongodb-linux-x86_64-$MONGODB_VERSION/bin:$PATH
 # we work out of the container's /src/ dir, copy in files to build
 WORKDIR /src
 COPY . /src
-# npm installs, then run setup script
+# run setup script after globally required nodemon and jest
 RUN yarn add global --quiet nodemon jest \
-  && yarn
-RUN yarn run setup
+  && yarn run setup
 
 # when run, this image will expose ports, allow binding of directory
+VOLUME ["/src"]
 EXPOSE 3000 8080 5858 27017 27018
-VOLUME /src
 
 # start w/ this command unless otherwise specified
 ENTRYPOINT ["/bin/bash", "-c", "yarn start dev"]
