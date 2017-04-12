@@ -62,9 +62,12 @@ const ArticlePreview = props => {
         <p>{article.description}</p>
         <span>Read more...</span>
         <ul className="tag-list">
-          {article.tagList.map((tag, i) => {
+          {article.tagList.filter((tag, i, arr) => {
+            // Filter out duplicate values.
+            return arr.indexOf(tag) === i
+          }).map(tag => {
             return (
-              <li className="tag-default tag-pill tag-outline" key={i}>
+              <li className="tag-default tag-pill tag-outline" key={tag}>
                 {tag}
               </li>
             )
