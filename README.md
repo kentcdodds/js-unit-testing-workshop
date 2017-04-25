@@ -107,7 +107,7 @@ To get the app up and running (and really see if it worked), run:
 npm start dev
 
 # if using yarn
-yarn run start dev
+yarn start dev
 ```
 
 
