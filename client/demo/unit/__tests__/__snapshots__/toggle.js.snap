@@ -17,6 +17,16 @@ exports[`has toggle--off class applied by default 1`] = `
   border-color: #285f8f;
 }
 
+.css-vp4bp7:hover,
+[data-css-vp4bp7]:hover,
+.css-vp4bp7:active,
+[data-css-vp4bp7]:active,
+.css-vp4bp7:focus,
+[data-css-vp4bp7]:focus {
+  background-color: #285f8f;
+  border-color: #1d4567;
+}
+
 <button
   class="css-vp4bp7"
   data-test="button"
@@ -40,6 +50,16 @@ exports[`has toggle--on class applied when initialToggledOn: true 1`] = `
   color: #fff;
   background-color: #22527b;
   border-color: #173853;
+}
+
+.css-15i754:hover,
+[data-css-15i754]:hover,
+.css-15i754:active,
+[data-css-15i754]:active,
+.css-15i754:focus,
+[data-css-15i754]:focus {
+  background-color: #1d4567;
+  border-color: #122a3f;
 }
 
 <button
