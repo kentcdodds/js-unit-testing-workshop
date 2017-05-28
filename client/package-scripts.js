@@ -26,27 +26,21 @@ module.exports = {
       unit: {
         default: {
           description: 'run the unit tests and collect code coverage',
-          script: testEnv(
-            'jest --config=tests/jest.config.unit.json --coverage'
-          ),
+          script: 'jest --config=tests/jest.config.unit.json --coverage',
         },
         watch: {
           description: 'run the unit tests in watch mode',
-          script: testEnv('jest --config=tests/jest.config.unit.json --watch'),
+          script: 'jest --config=tests/jest.config.unit.json --watch',
         },
       },
       integration: {
         default: {
           description: 'run the integration tests and collect coverage',
-          script: testEnv(
-            'jest --config=tests/jest.config.integration.json --coverage'
-          ),
+          script: 'jest --config=tests/jest.config.integration.json --coverage',
         },
         watch: {
           description: 'run the integration tests in watch mode',
-          script: testEnv(
-            'jest --config=tests/jest.config.integration.json --watch'
-          ),
+          script: 'jest --config=tests/jest.config.integration.json --watch',
         },
       },
     },
