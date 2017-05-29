@@ -93,9 +93,9 @@ function getAPIUrl() {
   const developmentUrl = 'http://localhost:3000/api'
   const isProduction = process.env.NODE_ENV === 'production'
   if (isProduction) {
-    return queryString.parse(location.search)['api-url'] || productionUrl
+    return queryString.parse(window.location.search)['api-url'] || productionUrl
   } else {
-    const search = location.hash.slice(location.hash.indexOf('?'))
+    const search = window.location.hash.slice(window.location.hash.indexOf('?'))
     return queryString.parse(search)['api-url'] || developmentUrl
   }
 }
