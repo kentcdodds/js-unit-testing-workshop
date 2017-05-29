@@ -89,10 +89,6 @@ module.exports = {
   },
 }
 
-function testEnv(script) {
-  return crossEnv(`NODE_ENV=test ${script}`)
-}
-
 // this is not transpiled
 /*
   eslint
