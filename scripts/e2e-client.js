@@ -21,22 +21,12 @@ spawnPromise(startClientCommand, {
     PORT: clientServerPort,
     BROWSER: 'none', // so react-scripts doesn't auto-open a browser window
   }),
-}).promise.then(() => {
-  console.log('🏁  client finished')
-}, error => {
-  console.error('🚨  client failed')
-  console.error(error.stack)
-})
-
-// this is not transpiled
-/*
-  eslint
-  comma-dangle: [
-    2,
-    {
-      arrays: 'always-multiline',
-      objects: 'always-multiline',
-      functions: 'never'
-    }
-  ]
- */
+}).promise.then(
+  () => {
+    console.log('🏁  client finished')
+  },
+  error => {
+    console.error('🚨  client failed')
+    console.error(error.stack)
+  },
+)

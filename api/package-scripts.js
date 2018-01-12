@@ -1,9 +1,4 @@
-const {
-  series,
-  concurrent,
-  rimraf,
-  commonTags: {oneLine},
-} = require('nps-utils')
+const {series, concurrent, rimraf, commonTags: {oneLine}} = require('nps-utils')
 
 const hiddenFromHelp = true
 
@@ -26,7 +21,7 @@ module.exports = {
       description: 'Transpile the source files to the `dist` directory',
       script: series(
         rimraf('dist'),
-        'babel --copy-files --out-dir dist --ignore __tests__,__mocks__ src'
+        'babel --copy-files --out-dir dist --ignore __tests__,__mocks__ src',
       ),
     },
     test: {
@@ -37,11 +32,11 @@ module.exports = {
       unit: {
         default: {
           description: 'Run the unit tests and collect coverage',
-          script: 'jest --config=tests/jest.config.unit.json --coverage',
+          script: 'jest --config=tests/jest.config.unit.js --coverage',
         },
         watch: {
           description: 'run the unit tests in watch mode',
-          script: 'jest --config=tests/jest.config.unit.json --watch',
+          script: 'jest --config=tests/jest.config.unit.js --watch',
         },
       },
       integration: {
@@ -50,14 +45,14 @@ module.exports = {
             Run the integration tests and collect coverage.
             NOTE: the mongodb server must be running!
           `,
-          script: 'jest --config=tests/jest.config.integration.json --coverage',
+          script: 'jest --config=tests/jest.config.integration.js --coverage',
         },
         watch: {
           description: oneLine`
             Run the integration tests in watch mode.
             NOTE: the mongodb server must be running!
           `,
-          script: 'jest --config=tests/jest.config.integration.json --watch',
+          script: 'jest --config=tests/jest.config.integration.js --watch',
         },
       },
     },
@@ -73,36 +68,23 @@ module.exports = {
       unit: {
         default: {
           hiddenFromHelp,
-          script: 'jest --config=demo/unit/jest.config.json',
+          script: 'jest --config=demo/unit/jest.config.js',
         },
         watch: {
           hiddenFromHelp,
-          script: 'jest --config=demo/unit/jest.config.json --watch',
+          script: 'jest --config=demo/unit/jest.config.js --watch',
         },
       },
       integration: {
         default: {
           hiddenFromHelp,
-          script: 'jest --config=demo/integration/jest.config.json',
+          script: 'jest --config=demo/integration/jest.config.js',
         },
         watch: {
           hiddenFromHelp,
-          script: 'jest --config=demo/integration/jest.config.json --watch',
+          script: 'jest --config=demo/integration/jest.config.js --watch',
         },
       },
     },
   },
 }
-
-// this is not transpiled
-/*
-  eslint
-  comma-dangle: [
-    2,
-    {
-      arrays: 'always-multiline',
-      objects: 'always-multiline',
-      functions: 'never'
-    }
-  ]
- */

@@ -9,7 +9,6 @@ module.exports = {
   spawnPromise,
 }
 
-
 function runSequence(commands, ...spawnArgs) {
   return new Promise((resolve, reject) => {
     const children = []
@@ -18,7 +17,7 @@ function runSequence(commands, ...spawnArgs) {
         const {promise, child} = spawnPromise(command, ...spawnArgs)
         children.push(child)
         return promise
-      })
+      }),
     )
       .then(result => {
         resolve({result, children})
@@ -55,15 +54,3 @@ function spawnPromise({script, resolveEarly, resolveDelay, message}, ...args) {
   })
   return {child, promise}
 }
-// this is not transpiled
-/*
-  eslint
-  comma-dangle: [
-    2,
-    {
-      arrays: 'always-multiline',
-      objects: 'always-multiline',
-      functions: 'never'
-    }
-  ]
- */
