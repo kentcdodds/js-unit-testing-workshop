@@ -1,39 +1,6 @@
 import React from 'react'
-import glamorous from 'glamorous'
+import { Input, Button } from './inputs'
 
-const Input = glamorous.input({
-  background: 'white',
-  height: 50,
-  border: 'none',
-  borderRadius: 10,
-  boxShadow: 'var(--shadow)',
-  borderBottom: 5,
-  width: '30%',
-  display: 'block',
-  margin: '0 auto 10px auto',
-  paddingLeft: 10,
-  '::placeholder': {
-    opacity: 0.5,
-  },
-  '@media only screen and (max-width: 744px)': {
-    width: '70%',
-  },
-})
-
-const Button = glamorous.input({
-  background: 'var(--green)',
-  padding: '10px 20px',
-  display: 'block',
-  margin: 'auto',
-  color: 'white',
-  borderRadius: 10,
-  boxShadow: 'var(--shadow)',
-  cursor: 'pointer',
-  transition: '0.5s',
-  ':hover': {
-    boxShadow: 'var(--shadowHover)',
-  },
-})
 function Login({onSubmit}) {
   return (
     <div>

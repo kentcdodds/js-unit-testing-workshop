@@ -22,7 +22,7 @@ const TitleContainer = glamorous.div({
   padding: '30px 50px',
   boxShadow: 'var(--shadow)',
   borderRadius: '50px',
-  '@media only screen and (max-width: 744px)': {
+  '@media only screen and (max-width: 895px)': {
     order: 0,
   },
 })
@@ -37,6 +37,12 @@ const SecondaryTitle = glamorous.span({
   color: 'var(--black)',
 })
 
+const Inspired = glamorous.small({
+  transition:'0.5s',
+  ':hover':{
+    color:'var(--green)'
+  }
+})
 const SocialLogo = glamorous.img({
   width: 25,
   background: 'white',
@@ -50,10 +56,10 @@ const SocialLogo = glamorous.img({
   },
 })
 const UserBtnsContainer = glamorous.div({
-  width: '20%',
+  width: '25%',
   display: 'flex',
   justifyContent: 'center',
-  '@media only screen and (max-width: 744px)': {
+  '@media only screen and (max-width: 895px)': {
     order: 1,
     marginTop: 10,
     width: '50%',
@@ -65,7 +71,26 @@ const UserBtn = glamorous.span({
   borderRadius: 15,
   padding: 15,
   marginLeft: 15,
+  cursor:'pointer',
   transition: '0.5s',
+  ':hover': {
+    boxShadow: 'var(--shadowHover)',
+  },
+})
+
+const NewPostBtn = glamorous.span({
+  background: 'var(--green)',
+  boxShadow: 'var(--shadow)',
+  color:'white',
+  fontSize:40,
+  borderRadius: 15,
+  padding: 15,
+  lineHeight:0.5,
+  transition: '0.5s',
+  cursor:'pointer',
+  position:'fixed',
+  bottom:10,
+  right:10,  
   ':hover': {
     boxShadow: 'var(--shadowHover)',
   },
@@ -104,20 +129,20 @@ function App() {
                         <SecondaryTitle>I LEARNED</SecondaryTitle>
                       </Link>
                     </Title>
-                    <small>
+                    <Inspired>
                       Inspired by{' '}
                       <a href="https://til.hashrocket.com/">
                         til.hashrocket.com
                       </a>
-                    </small>
+                    </Inspired>
                   </div>
                 </TitleContainer>
                 <UserBtnsContainer>
                   {user ? (
                     <div>
-                      <span data-test="username-display">{user.username}</span>
-                      <button onClick={logout}>Logout</button>
-                      <Link to="/editor">Add new Post</Link>
+                      <UserBtn data-test="username-display">{user.username.split('@')[0]}</UserBtn>
+                      <UserBtn onClick={logout}>Logout</UserBtn>
+                      <NewPostBtn><Link to="/editor">+</Link></NewPostBtn>
                     </div>
                   ) : (
                     <div>
