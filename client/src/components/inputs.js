@@ -45,18 +45,19 @@ const TextAreaStyled = glamorous.textarea({
 export const TextArea = ({...props}) => <TextAreaStyled {...props} />
 
 const ButtonStyled = glamorous.input({
-  background: 'var(--green)',
-  padding: '10px 20px',
-  display: 'block',
-  margin: 'auto',
-  color: 'white',
-  borderRadius: 10,
-  boxShadow: 'var(--shadow)',
-  cursor: 'pointer',
-  transition: '0.5s',
-  ':hover': {
-    boxShadow: 'var(--shadowHover)',
-  },
+    background: 'var(--green)',
+    padding: '10px 20px',
+    display: 'block',
+    margin: 'auto',
+    color: 'white',
+    border:'none',
+    borderRadius: 10,
+    boxShadow: 'var(--shadow)',
+    cursor: 'pointer',
+    transition: '0.5s',
+    ':hover': {
+        boxShadow: 'var(--shadowHover)',
+    },
 })
 
 export const Button = ({...props}) => <ButtonStyled {...props} />
