@@ -1,25 +1,8 @@
+// this file is not transpiled
+// we could probably make it work
+// but meh... ¯\_(ツ)_/¯
 import faker from 'faker'
-import * as auth from '../src/auth'
-import db from '../src/db'
-
-function initDb() {
-  const users = Array.from({length: 10}, () =>
-    generateUserData({id: faker.random.uuid()}),
-  )
-
-  const posts = users.map(u =>
-    generatePostData({authorId: u.id, id: faker.random.uuid()}),
-  )
-  db.users = users
-  db.posts = posts
-
-  const testUser = generateUserData({
-    id: faker.random.uuid(),
-    username: 'til',
-    password: 'til',
-  })
-  db.users.push(testUser)
-}
+import {getSaltAndHash} from '../src/auth'
 
 function generateUserData({
   password = faker.internet.password(),
@@ -27,7 +10,7 @@ function generateUserData({
 } = {}) {
   return {
     username: faker.internet.userName(),
-    ...auth.getSaltAndHash(password),
+    ...getSaltAndHash(password),
     ...overrides,
   }
 }
@@ -45,4 +28,4 @@ function generatePostData(overrides) {
   }
 }
 
-export {generateUserData, generatePostData, initDb}
+export {generateUserData, generatePostData}
