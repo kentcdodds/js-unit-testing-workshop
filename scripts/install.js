@@ -1,16 +1,17 @@
 /* eslint-disable */
+const path = require('path')
+const installDeps = require('./workshop-setup').installDeps
 
-var path = require('path')
-var installDeps = require('./workshop-setup').installDeps
+const main = path.resolve(__dirname, '..')
+const shared = path.resolve(__dirname, '../shared')
+const server = path.resolve(__dirname, '../server')
+const client = path.resolve(__dirname, '../client')
 
-var main = path.resolve(__dirname, '..')
-var server = path.resolve(__dirname, '../server')
-var client = path.resolve(__dirname, '../client')
-installDeps([main, server, client]).then(
-  function() {
+installDeps([main, shared, server, client]).then(
+  () => {
     console.log('👍  all dependencies installed')
   },
-  function() {
+  () => {
     // ignore, workshop-setup will log for us...
-  }
+  },
 )

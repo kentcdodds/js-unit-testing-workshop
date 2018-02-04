@@ -31,6 +31,7 @@ const Title = glamorous.h1({
   color: 'var(--green)',
   fontSize: 50,
   lineHeight: '40px',
+  textTransform: 'upperase',
 })
 
 const SecondaryTitle = glamorous.span({
@@ -96,14 +97,19 @@ const NewPostBtn = glamorous.span({
   },
 })
 
+const SocialButton = glamorous.button({
+  border: 'none',
+  backgroundColor: 'transparent',
+})
+
 const SocialMedia = () => (
   <UserBtnsContainer>
-    <a href="#">
+    <SocialButton>
       <SocialLogo src={twitterLogo} />
-    </a>
-    <a href="#">
+    </SocialButton>
+    <SocialButton>
       <SocialLogo src={githubLogo} />
-    </a>
+    </SocialButton>
   </UserBtnsContainer>
 )
 
@@ -125,8 +131,8 @@ function App() {
                   <div>
                     <Title>
                       <Link to="/">
-                        TODAY<br />
-                        <SecondaryTitle>I LEARNED</SecondaryTitle>
+                        Today<br />
+                        <SecondaryTitle>I Learned</SecondaryTitle>
                       </Link>
                     </Title>
                     <Inspired>
@@ -147,7 +153,9 @@ function App() {
                         Logout
                       </UserBtn>
                       <NewPostBtn>
-                        <Link to="/editor">+</Link>
+                        <Link to="/editor" data-test="create-post-link">
+                          +
+                        </Link>
                       </NewPostBtn>
                     </div>
                   ) : (

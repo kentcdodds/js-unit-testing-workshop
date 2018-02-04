@@ -7,13 +7,9 @@
     "start": "cross-env NODE_ENV=production node .",
     "dev": "node .",
     "build": "babel --ignore __tests__,__mocks__ --out-dir dist src",
-    "now-build": "echo \"build was run on CI\"",
-    "now-start": "node .",
-    "test": "cd .. && npm run test:server --silent"
-  },
-  "now": {
-    "name": "til",
-    "alias": "til.now.sh"
+    "test": "cd .. && npm run test:server --silent",
+    "now-build": "echo \"build happens before deploy\"",
+    "now-start": "node ."
   },
   "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kentcdodds.com/)",
   "license": "MIT",
@@ -25,12 +21,16 @@
     "express": "^4.16.2",
     "express-async-errors": "^2.1.0",
     "express-jwt": "^5.3.0",
-    "faker": "^4.1.0",
     "jsonwebtoken": "^8.1.1",
     "lodash": "^4.17.4",
     "loglevel": "^1.6.1",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "til-shared": "file:../shared"
+  },
+  "now": {
+    "name": "til",
+    "alias": "til.now.sh"
   },
   "babel": {
     "presets": [
