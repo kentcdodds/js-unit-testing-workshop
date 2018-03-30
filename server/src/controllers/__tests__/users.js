@@ -115,7 +115,7 @@ test('deleteUser will 404 if made to a non-existing user', async () => {
 })
 
 test('deleteUser will 403 if not made by the author', async () => {
-  const testUser = await db.insertPost(generate.userData())
+  const testUser = await db.insertUser(generate.userData())
   const {req, res} = setup()
   req.params = {id: testUser.id}
 
