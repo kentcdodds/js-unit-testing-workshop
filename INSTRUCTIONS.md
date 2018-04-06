@@ -386,7 +386,7 @@ Let's turn on watch mode!
 * Get code coverage with: `jest --coverage`
 * Watch mode with: `jest --watch`
 * Configure jest with `jest.config.js`, `--config`, or `package.json` `jest` property:
-  * `"testEnvironment": "jest-environment-node"` if you don't need `jsdom`
+  * `"testEnvironment": "node"` if you don't need `jsdom`
   * `collectCoverageFrom` to collect coverage numbers on your whole codebase (`coveragePathIgnorePatterns` can ignore some)
   * `coverageThresholds` to keep your coverage from falling
 
