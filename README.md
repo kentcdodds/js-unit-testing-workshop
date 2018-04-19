@@ -11,7 +11,7 @@ workshop repo to teach you about testing JavaScript applications.
 [![Build Status][build-badge]][build]
 [![AppVeyor Build Status][win-build-badge]][win-build]
 [![Code Coverage][coverage-badge]][coverage]
-[![MIT License][license-badge]](#license)
+[![License][license-badge]](#license)
 [![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors)
 
 [![PRs Welcome][prs-badge]][prs]
