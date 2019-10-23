@@ -15,7 +15,7 @@
     "react": "16.3.1",
     "react-dom": "16.3.1",
     "react-router-dom": "4.2.2",
-    "serve": "6.5.5"
+    "serve": "11.2.0"
   },
   "scripts": {
     "start": "cross-env serve -s build --port $CLIENT_PORT",
