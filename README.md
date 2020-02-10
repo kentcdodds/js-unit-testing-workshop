@@ -76,6 +76,7 @@ you're working with.
 - [git][git] v2.14.1 or greater
 - [NodeJS][node] v8.9.4 or greater
 - [npm][npm] v5.6.0 or greater
+- [MongoDB][mongo] v3.4.2 or greater
 
 All of these must be available in your `PATH`. To verify things are set up
 properly, you can run this:
@@ -84,6 +85,7 @@ properly, you can run this:
 git --version
 node --version
 npm --version
+mongod --version
 ```
 
 If you have trouble with any of these, learn more about the PATH environment
