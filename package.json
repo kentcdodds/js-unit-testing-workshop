@@ -22,7 +22,7 @@
     "test:server": "jest --config ./server/jest.config.js --watch",
     "test:run": "jest --config ./other/jest.config.js --coverage",
     "test:mock": "jest --config ./other/whats-a-mock/jest.config.js --watch",
-    "test:expect": "jest --config ./other/jest-expect/jest.config.js --watch",
+    "test:expect": "jest --config ./other/jest-expect/jest.config.js",
     "test:react": "jest --config ./other/simple-react/jest.config.js --watch",
     "pretest:e2e:run": "npm run build --silent",
     "test:e2e:run": "as-a E2E npm-run-all --parallel --race start:core cy:run",

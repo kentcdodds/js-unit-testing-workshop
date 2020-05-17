@@ -1,5 +1,34 @@
+import {isPasswordAllowed, userToJSON} from '../auth'
+
+describe('isPasswordAllowed', () => {
+  const badPasswords = ['', 'rrrrrrrrrrr', '1111111111', 'sushi1']
+  const validPasswords = ['sushi12', 'Johhny123']
+
+  badPasswords.forEach(badPassword => {
+    it(`${badPassword} should not be allowed as passoword`, () => {
+      expect(isPasswordAllowed(badPassword)).toBe(false)
+    })
+  })
+
+  validPasswords.forEach(validPassword => {
+    it(`${validPassword} should be allowed as password`, () => {
+      expect(isPasswordAllowed(validPassword)).toBe(true)
+    })
+  })
+})
+
 test('isPasswordAllowed only allows some passwords', () => {
-  // here's where I'll demo things for you :)
+  // bad passwords.
+  expect(isPasswordAllowed('')).toBe(false)
+  expect(isPasswordAllowed('rrrrrrrrrrr')).toBe(false)
+  expect(isPasswordAllowed('1111111111')).toBe(false)
+
+  // incorrect length passwords
+  expect(isPasswordAllowed('sushi1')).toBe(false)
+
+  // good passwords mix of letters and alphabets.
+  expect(isPasswordAllowed('sushi12')).toBe(true)
+  expect(isPasswordAllowed('Johhny123')).toBe(true)
 })
 
 test('userToJSON excludes secure properties', () => {
@@ -9,19 +38,27 @@ test('userToJSON excludes secure properties', () => {
   // doesn't have any of the properties it's not
   // supposed to.
   // Here's an example of a user object:
-  // const user = {
-  //   id: 'some-id',
-  //   username: 'sarah',
-  //   // ↑ above are properties which should
-  //   // be present in the returned object
-  //
-  //   // ↓ below are properties which shouldn't
-  //   // be present in the returned object
-  //   exp: new Date(),
-  //   iat: new Date(),
-  //   hash: 'some really long string',
-  //   salt: 'some shorter string',
-  // }
+
+  const safeUser = {
+    id: 'some-id',
+    username: 'sarah',
+  }
+
+  const user = {
+    ...safeUser,
+    // ↑ above are properties which should
+    // be present in the returned object
+
+    // ↓ below are properties which shouldn't
+    // be present in the returned object
+    exp: new Date(),
+    iat: new Date(),
+    hash: 'some really long string',
+    salt: 'some shorter string',
+  }
+
+  const jsonUser = userToJSON(user)
+  expect(jsonUser).toEqual(safeUser)
 })
 
 //////// Elaboration & Feedback /////////
